@@ -13,6 +13,15 @@ function App() {
       element: <Main></Main>,
       children: [
         {
+          path: "/",
+          element: <Home></Home>,
+          loader: async () => {
+            return fetch(
+              "https://www.themealdb.com/api/json/v1/1/categories.php"
+            );
+          },
+        },
+        {
           path: "/home",
           element: <Home></Home>,
           loader: async () => {
